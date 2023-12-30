@@ -1,6 +1,6 @@
 # TODO Behave BDD
 
-Project focused on BDD learning and practicing, which is a TODO application been tested
+Project focused on BDD learning and practicing, which is a TODO application been tested.
 
 ## Scenario: Create a TODO card
 
