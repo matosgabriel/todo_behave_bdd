@@ -24,4 +24,4 @@ def create_todo(ctx):
 def check_stack(ctx, pilha):
     # import ipdb; ipdb.sset_trace()
 
-    assert 'sleep' in ctx.browser.find_element(By.CLASS_NAME, 'body_a').text
+    assert 'run' in ctx.browser.find_element(By.CLASS_NAME, 'body_a').text

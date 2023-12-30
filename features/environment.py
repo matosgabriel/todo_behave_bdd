@@ -1,5 +1,5 @@
 from selenium.webdriver import Firefox
-import ipdb
+from ipdb import spost_mortem
 
 
 def before_all(ctx):
@@ -7,8 +7,8 @@ def before_all(ctx):
 
 
 def after_step(ctx, step):
-    if step.status == 'failed':
-        ipdb.sset_trace()
+    if ctx.config.userdata.getbool("debug") and step.status == 'failed':
+        spost_mortem(step.exc_traceback)
 
 
 def after_all(ctx):
