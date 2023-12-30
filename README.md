@@ -8,7 +8,7 @@ The challenge is ensure that TODO cards are created after the creating logic hav
 
 For that, automating with Python was the best way to implement the TODO card creation.
 
-<h2>In this project the libs used was:</h2>
+<h2>In this project the used libs were:</h2>
 
 - Behave
 - Selenium
