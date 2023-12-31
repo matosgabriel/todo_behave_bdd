@@ -1,9 +1,18 @@
-from selenium.webdriver import Firefox
+from selenium.webdriver import Firefox, Chrome, Edge, Safari
 from ipdb import spost_mortem
 
 
 def before_all(ctx):
-    ctx.browser = Firefox()
+    user_browser = ctx.config.userdata.get('browser')
+
+    browsers_list = {
+        'firefox': Firefox,
+        'chrome': Chrome,
+        'edge': Edge,
+        'safari': Safari
+    }
+
+    ctx.browser = browsers_list[user_browser]()
 
 
 def after_step(ctx, step):
