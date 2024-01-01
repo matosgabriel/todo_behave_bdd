@@ -15,11 +15,11 @@ def open_todo_page(ctx, page):
 
 @when('create a TODO card')
 def create_todo(ctx):
-    todo_info = loads(ctx.text)
+    ctx.todo_info = loads(ctx.text)
 
     ctx.page.todo.create_todo(
-        name=todo_info['name'],
-        description=todo_info['description']
+        name=ctx.todo_info['name'],
+        description=ctx.todo_info['description']
     )
 
 
@@ -29,4 +29,5 @@ def check_stack(ctx, element):
     parsed_element = element.lower().replace(' ', '_')
 
     page_element = getattr(ctx.page, parsed_element)
-    assert page_element.todos
+    assert any(x.description ==
+               ctx.todo_info['description'] for x in page_element.todos)
