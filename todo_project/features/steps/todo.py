@@ -23,6 +23,16 @@ def create_todo(ctx):
     )
 
 
+@when('create the following TODO cards')
+def create_many_todos(ctx):
+    for line in ctx.table.rows:
+        parsed_line = dict(line.items())
+        ctx.page.todo.create_todo(
+            name=parsed_line['name'],
+            description=parsed_line['description']
+        )
+
+
 @then('this TODO card should be in the stack "{element}"')
 def check_stack(ctx, element):
     # import ipdb; ipdb.sset_trace()
@@ -31,3 +41,19 @@ def check_stack(ctx, element):
     page_element = getattr(ctx.page, parsed_element)
     assert any(x.description ==
                ctx.todo_info['description'] for x in page_element.todos)
+
+
+@then('the following TODO cards should be in the stack "{element}"')
+def check_stack(ctx, element):
+    # import ipdb; ipdb.sset_trace()
+    parsed_element = element.lower().replace(' ', '_')
+
+    created_todos = []
+    for line in ctx.table.rows:
+        parsed_line = dict(line.items())
+        created_todos.append(parsed_line)
+
+    page_element = getattr(ctx.page, parsed_element)
+    for todo_card in created_todos:
+        assert any(x.description ==
+                   todo_card['description'] for x in page_element.todos)
