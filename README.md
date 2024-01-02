@@ -6,10 +6,18 @@ Project focused on BDD learning and practicing, which is a TODO application been
 
 The challenge is ensure that TODO cards are created after the creating logic have been executed.
 
-For that, automating with Python was the best way to implement the TODO card creation.
+## Scenario: Create many TODO cards
 
-<h2>In this project the used libs were:</h2>
+For this one, the purpose is ensure the creation of multiple TODO cards.
+
+<h2>Libraries in this project</h2>
 
 - Behave
 - Selenium
 - Ipdb
+- behave-html-formatter
+
+<div><h2>HTML Behave reports</h2></div>
+<div align='center'>
+  <img src='./github_assets/html-report.png' alt='html-report' height='350'>
+</div>
