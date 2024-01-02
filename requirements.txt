@@ -1,6 +1,7 @@
 asttokens==2.4.1
 attrs==23.1.0
 behave==1.2.6
+behave-html-formatter==0.9.10
 certifi==2023.11.17
 cffi==1.16.0
 colorama==0.4.6
