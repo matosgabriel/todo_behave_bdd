@@ -11,6 +11,7 @@ Feature: TODO list
       """
     Then this TODO card should be in the stack "A fazer"
 
+  @critical
   Scenario: Create many TODO cards
     Given that i am in "todo" page
     When create the following TODO cards
